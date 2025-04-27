@@ -16,9 +16,9 @@ if [[ -z "$layer_file" ]]; then
   exit -1
 fi
 
-echo 1 | sudo -S ll-cli repo set-default old || true
+sudo ll-cli repo set-default old || true
 
-echo 1 | sudo -S ll-cli install "./${APP_ID}/layer/${layer_file}" || true
+sudo ll-cli install "./${APP_ID}/layer/${layer_file}" || true
 
 
 export DISPLAY=:1 && ll-cli run "$APP_ID" &
@@ -29,11 +29,11 @@ ps_output=$(ll-cli ps | tail -n+2 | awk '{print $1}')
 
 if echo "$ps_output" | grep "$APP_ID" > /dev/null; then
   ll-cli kill "$APP_ID"
-  sudo ll-cli --no-dbus uninstall "$APP_ID"
+  sudo ll-cli uninstall "$APP_ID"
   sudo ll-cli prune
 else
   echo "failed: $APP_ID $VERSION no running (no match APP_ID)"
-  sudo ll-cli --no-dbus uninstall "$APP_ID"
+  sudo ll-cli uninstall "$APP_ID"
   sudo ll-cli prune
   exit -1
 fi
