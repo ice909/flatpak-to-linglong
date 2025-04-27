@@ -29,11 +29,11 @@ ps_output=$(ll-cli ps | tail -n+2 | awk '{print $1}')
 
 if echo "$ps_output" | grep "$APP_ID" > /dev/null; then
   ll-cli kill "$APP_ID"
-  sudo ll-cli uninstall "$APP_ID"
+  sudo ll-cli --no-dbus uninstall "$APP_ID"
   sudo ll-cli prune
 else
   echo "failed: $APP_ID $VERSION no running (no match APP_ID)"
-  sudo ll-cli uninstall "$APP_ID"
+  sudo ll-cli --no-dbus uninstall "$APP_ID"
   sudo ll-cli prune
   exit -1
 fi
