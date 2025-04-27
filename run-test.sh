@@ -28,7 +28,7 @@ sleep 5
 ps_output=$(ll-cli ps | tail -n+2 | awk '{print $1}')
 
 if echo "$ps_output" | grep "$APP_ID" > /dev/null; then
-  ll-cli kill "$APP_ID"
+  ll-cli kill -s9 "$APP_ID"
   sudo ll-cli uninstall "$APP_ID"
   sudo ll-cli prune
 else

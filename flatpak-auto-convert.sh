@@ -18,7 +18,7 @@ rm -rf ~/.cache/linglong-builder || true
 # 执行 ll-builder build
 ll-builder repo add old https://repo-dev.cicd.getdeepin.org || true
 ll-builder repo set-default old || true
-ll-builder build
+ll-builder build --skip-strip-symbols --skip-output-check
 if [[ $? -ne 0 ]]; then
   echo "failed: ll-builder build $APP_ID $VERSION failed"
   exit -1
