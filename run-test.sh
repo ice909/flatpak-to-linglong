@@ -23,7 +23,7 @@ sudo ll-cli install "./${APP_ID}/layer/${layer_file}" || true
 
 export DISPLAY=:1 && ll-cli run "$APP_ID" &
 
-sleep 5
+sleep 15
 
 ps_output=$(ll-cli ps | tail -n+2 | awk '{print $1}')
 
