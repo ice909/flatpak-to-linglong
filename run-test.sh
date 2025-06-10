@@ -18,12 +18,12 @@ if [[ -z "$layer_file" ]]; then
   exit -1
 fi
 
-sudo ll-cli repo set-default old || true
+sudo ll-cli repo set-default dev || true
 
 sudo ll-cli install "./${layer_file[0]}" || true
 
 
-export DISPLAY=:0 && ll-cli run "$SMALLER_APPID" &
+ll-cli run "$SMALLER_APPID" &
 
 sleep 5
 
