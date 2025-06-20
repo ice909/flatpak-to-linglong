@@ -12,9 +12,6 @@ fi
 APP_ID=$1
 VERSION=$2
 
-# 清理builder 缓存
-rm -rf ~/.cache/linglong-builder || true
-
 # 执行 ll-builder build
 ll-builder repo add old https://repo-dev.cicd.getdeepin.org || true
 ll-builder repo set-default old || true
