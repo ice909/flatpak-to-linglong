@@ -2,22 +2,12 @@
 
 set -x
 
-# 检查是否传入 APP_ID 和 version 参数
-if [[ $# -lt 2 ]]; then
-  echo "usage: $0 <APP_ID> <version>"
-  exit 1
-fi
-
-# 读取传入的参数
-APP_ID=$1
-VERSION=$2
-
 # 执行 ll-builder build
 ll-builder repo add old https://repo-dev.cicd.getdeepin.org || true
 ll-builder repo set-default old || true
 ll-builder build --skip-strip-symbols --skip-output-check
 if [[ $? -ne 0 ]]; then
-  echo "failed: ll-builder build $APP_ID $VERSION failed"
+  echo "failed: ll-builder build failed"
   exit -1
 fi
 

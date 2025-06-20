@@ -3,7 +3,6 @@
 set -x
 
 APP_ID=$1
-VERSION=$2
 
 SMALLER_APPID=$(echo $APP_ID | tr '[:upper:]' '[:lower:]')
 if [[ $# -lt 2 ]]; then
@@ -34,7 +33,7 @@ if echo "$ps_output" | grep "$SMALLER_APPID" > /dev/null; then
   sudo ll-cli uninstall "$SMALLER_APPID"
   sudo ll-cli prune
 else
-  echo "failed: $SMALLER_APPID $VERSION no running (no match APP_ID)"
+  echo "failed: $SMALLER_APPID no running (no match APP_ID)"
   sudo ll-cli uninstall "$SMALLER_APPID"
   sudo ll-cli prune
   exit -1
