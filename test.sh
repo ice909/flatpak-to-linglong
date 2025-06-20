@@ -5,8 +5,8 @@ set -x
 APP_ID=$1
 
 SMALLER_APPID=$(echo $APP_ID | tr '[:upper:]' '[:lower:]')
-if [[ $# -lt 2 ]]; then
-  echo "usage: $0 <APP_ID> <version>"
+if [[ $# -lt 1 ]]; then
+  echo "usage: $0 <APP_ID>"
   exit 1
 fi
 
