@@ -20,8 +20,8 @@ flatpak转linglong自动化脚本
 - 说明：将 ${APP_ID}/layer 目录下的 layer 文件推送到指定仓库。
 - 用法示例：./push.sh [https://repo-dev.linyaps.org.cn] dev
 
-### run-test.sh
+### test.sh
 
 - 参数：<APP_ID>
 - 说明：安装 layer 并运行，简单测试运行情况，最后卸载并清理。
-- 用法示例：./run-test.sh com.example.App
+- 用法示例：./test.sh com.example.App
